@@ -79,7 +79,7 @@ let weather = {
         data.daily.forEach((day, idx) => {
             if (idx == 0) {
                 currentforecast += `
-                <div class="weather-forecast-item">
+                <div class="weather-forecast-item animcontainer">
                 <div class="day">Today</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
                 <div class="desc des">${day.weather[0].description}</div>
@@ -88,7 +88,7 @@ let weather = {
             </div>`
             } else {
                 otherdayforecast += `
-            <div class="weather-forecast-item">
+            <div class="weather-forecast-item animcontainer">
                 <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
                 <div class="desc des">${day.weather[0].description}</div>

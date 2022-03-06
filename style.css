@@ -76,7 +76,26 @@ a {
     font-weight: 600;
     text-transform: capitalize;
 }
+/* 
+.fade {
+    opacity: 1;
+} */
 
+.animcontainer {
+    animation: transitionIn 2s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
 
 .area {
     margin-bottom: 20px;
