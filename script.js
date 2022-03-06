@@ -9,6 +9,5 @@ let weather = {
             .then((data) => console.log(data));
     },
     displayWeather: function(data){
-
     }
 };
