@@ -58,9 +58,9 @@ body {
 
 }
 
-.place-container .time-zone {
-    font-size: 30px;
-    font-weight: 100;
+.others .time-zone {
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .place-container .country {
@@ -182,7 +182,7 @@ button {
         justify-content: start;
         align-items: none;
         overflow-y: scroll;
-        height: 50vh
+        /* height: 50vh */
     }
 
 
@@ -204,7 +204,7 @@ button {
 
     }
 
-    .place-container .time-zone {
+    .others .time-zone {
         font-size: 20px;
     }
 
