@@ -3,6 +3,7 @@ const dateEl = document.getElementById('date');
 const currentWeatherItemsEl = document.getElementById('current-weather-items');
 const weatherForecastItemsEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
+const emplace = 'Chennai';
 // const ci = document.querySelector('.search-bar').value;
 
 let weather = {
@@ -44,7 +45,7 @@ let weather = {
         currentWeatherItemsEl.innerHTML =
 
             ` 
-            <div class="time-zone" id="time-zone">Weather in ${document.querySelector('.search-bar').value}</div>
+        <div class="time-zone" id="time-zone">${document.querySelector('.search-bar').value}'s Weather Today</div>
            <div class="weather-item">
                         <div>Humidity</div>
                         <div id="h">${humidity}%</div>
@@ -116,7 +117,7 @@ setInterval(() => {
     const hin12Hy = hour >= 13 ? hour % 12 : hour;
     const ampm = hour >= 12 ? 'PM' : 'AM';
     // timeEl.innerHTML = hour + ":" + minutes + `<span id="am-pm"> ${ampm} </span>`;
-    timeEl.innerHTML = hour + ":" + minutes + `<span id="am-pm"> hrs </span>`;
+    timeEl.innerHTML = (hour<10 ? '0'+hour : hour) + ":" + (minutes<10 ? '0'+minutes : minutes) + `<span id="am-pm"> hrs </span>`;
     dateEl.innerHTML = days[date - 1] + ", " + date + " " + months[month];
 
 }, 1000);

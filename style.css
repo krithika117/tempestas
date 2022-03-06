@@ -35,6 +35,11 @@ body {
 
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 .date-container .time {
     font-size: 70px;
     font-weight: 100;
@@ -63,7 +68,7 @@ body {
     margin-bottom: 0;
     font-size: 13px;
     margin-bottom: 5px;
-    text-align: left !important;
+    text-align: center !important;
 }
 
 .others .time-zone {
@@ -184,13 +189,20 @@ button :hover {
     font-size: 13px;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1250px) {
     .future-forecast {
         justify-content: start;
         align-items: none;
         overflow-x: scroll;
     }
+
+    .main {
+        font-size: 12px;
+        text-align: center;
+    }
 }
+
+
 
 @media only screen and (max-width:730px) {
     .container {
