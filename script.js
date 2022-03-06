@@ -18,7 +18,7 @@ let weather = {
             .then((coords) => this.fetchWeather(coords));
         timezone.innerHTML = city;
     },
-    fetchWeather: function (coords) {
+    fetchWeather: function (coords) { try{
         const {
             lat,
             lon
@@ -27,7 +27,10 @@ let weather = {
         fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely&units=metric&appid=' + this.apiKey)
             .then((response) => response.json())
             .then((data) => this.displayWeather(data));
-
+    }
+    catch(err){
+        timezone.innerHTML = 'Please enter valid location.';
+    }
 
     },
 
@@ -41,8 +44,8 @@ let weather = {
             sunset,
             wind_speed
         } = data.current;
-
-        timezone.innerHTML += ` (${data.timezone})`
+         
+        timezone.innerHTML += ` (${data.timezone})`;
 
         // let {city} = this.fetchCoords.city;
         //console.log(name, icon, description, temp, humidity, speed);
@@ -100,31 +103,43 @@ let weather = {
         weatherForecastItemsEl.innerHTML = otherdayforecast;
         currentTempEl.innerHTML = currentforecast;
 
+        // console.log(formatter.format(new Date()));
+       
+        // const time = new Date(new Date().toLocaleString('en-US', {timeZone: data.timezone}));
+
+        const tz = data.timezone;
+        
     },
     search: function () {
         this.fetchCoords(document.querySelector('.search-bar').value);
     },
 };
 
-
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 setInterval(() => {
+    weather.coords
+    // timeEl.innerHTML = hour + ":" + minutes + `<span id="am-pm"> ${ampm} </span>`;
+    
+    // const tz = weather.timezone;
+    
     const time = new Date();
+    // const time = new Date();
     const month = time.getMonth();
     const date = time.getDate();
     const day = time.getDay();
     const hour = time.getHours();
-    // hour = hour<10 and hour ? ('0'+hour) : hour;
+
+    
+
     const minutes = time.getMinutes();
-    const hin12Hy = hour >= 13 ? hour % 12 : hour;
+    // const hin12Hy = hour >= 13 ? hour % 12 : hour;
     const ampm = hour >= 12 ? 'PM' : 'AM';
-    // timeEl.innerHTML = hour + ":" + minutes + `<span id="am-pm"> ${ampm} </span>`;
     timeEl.innerHTML = (hour < 10 ? '0' + hour : hour) + ":" + (minutes < 10 ? '0' + minutes : minutes) + `<span id="am-pm"> hrs </span>`;
     dateEl.innerHTML = days[date - 1] + ", " + date + " " + months[month];
-
 }, 1000);
+
 
 
 document.querySelector('.search button').addEventListener('click', function () {
