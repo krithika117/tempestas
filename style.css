@@ -6,8 +6,15 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Product Sans';
     background: url('./images/bg1.svg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -56,6 +63,34 @@ body {
     font-weight: 700;
 }
 
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 2.5em;
+    width: 2.5em;
+    outline: none;
+    background-color: rgba(11, 55, 85, 0.301);
+    color: aliceblue;
+}
+
+.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.8em 20px;
+    font-family: inherit;
+    border-radius: 18px;
+    color: aliceblue;
+    background-color: rgba(11, 55, 85, 0.301);
+}
+
 .current-info .others {
     display: flex;
     flex-direction: column;
@@ -86,10 +121,12 @@ body {
 }
 
 .future-forecast .today {
-    /* background: rgba(11, 55, 85, 0.301); */
+    background: rgba(11, 55, 85, 0.301);
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .future-forecast .today .day {
@@ -113,8 +150,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(172, 206, 230, 0.726);
-    background: rgba(11, 55, 85, 0.301);
+    border-top-left-radius: 20px;
+    background: rgba(240, 234, 234, 0.404);
     padding: 15px;
     border-radius: 10px;
     margin: 0 10px;
@@ -140,8 +177,9 @@ body {
         justify-content: start;
         align-items: none;
         overflow-y: scroll;
-        height: 50vh;
+        height: 50vh
     }
+
 
     .date-container .time {
         font-size: 50px;
