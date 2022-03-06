@@ -49,8 +49,13 @@ body {
     font-size: 30px;
 }
 
+::placeholder {
+    color: white;
+}
+
 .place-container {
     text-align: end;
+
 }
 
 .place-container .time-zone {
@@ -196,6 +201,7 @@ button {
     .place-container {
         text-align: end;
         margin-top: 15px;
+
     }
 
     .place-container .time-zone {
