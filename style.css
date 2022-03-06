@@ -71,8 +71,14 @@ a {
     text-align: center !important;
 }
 
-.others .time-zone {
-    margin-bottom: 10px;
+.timezone {
+    margin-top: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.area {
+    margin-bottom: 20px;
     font-weight: 600;
 }
 
@@ -235,7 +241,8 @@ button :hover {
 
     }
 
-    .others .time-zone {
+    .timezone {
+        margin-top: 30px;
         font-size: 20px;
     }
 

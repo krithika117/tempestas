@@ -16,6 +16,7 @@ let weather = {
                 this.apiKey)
             .then((response) => response.json())
             .then((coords) => this.fetchWeather(coords));
+            timezone.innerHTML = city ;
     },
     fetchWeather: function (coords) {
         const {
@@ -26,6 +27,7 @@ let weather = {
         fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely&units=metric&appid=' + this.apiKey)
             .then((response) => response.json())
             .then((data) => this.displayWeather(data));
+            
 
     },
 
@@ -39,13 +41,16 @@ let weather = {
             sunset,
             wind_speed
         } = data.current;
+
+        timezone.innerHTML += ` (${data.timezone})`
+        
         // let {city} = this.fetchCoords.city;
         //console.log(name, icon, description, temp, humidity, speed);
 
         currentWeatherItemsEl.innerHTML =
 
             ` 
-        <div class="time-zone" id="time-zone">${document.querySelector('.search-bar').value}'s Weather Today</div>
+        <div class="area" id="time-zone">${document.querySelector('.search-bar').value} Weather Today</div>
            <div class="weather-item">
                         <div>Humidity</div>
                         <div id="h">${humidity}%</div>
