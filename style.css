@@ -58,6 +58,10 @@ body {
 
 }
 
+.des {
+    text-transform: capitalize;
+}
+
 .others .time-zone {
     margin-bottom: 10px;
     font-weight: 600;
@@ -84,6 +88,14 @@ button {
     outline: none;
     background-color: rgba(11, 55, 85, 0.301);
     color: aliceblue;
+}
+
+button :hover {
+    cursor: pointer;
+}
+
+.future-forecast {
+    visibility: none;
 }
 
 .search-bar {

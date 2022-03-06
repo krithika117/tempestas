@@ -16,29 +16,29 @@
 
             <div class="date-container">
                 <div class="time" id="time">
-                    12:30 <span id="am-pm">PM</span>
+                     <span id="am-pm">PM</span>
                 </div>
                 <div class="date" id="date">
-                    Monday, 5 March
+                    
                 </div>
 
                 <div class="others" id="current-weather-items">
-                    <div class="time-zone" id="time-zone">Weather in Chennai</div>
+                    <div class="time-zone" id="time-zone">Search to get weather</div>
 
-                    <div class="weather-item">
-                        <div class="desc">description</div>
-                    </div>
+                    <!-- <div class="weather-item des">
+                        <div class="desc"></div>
+                    </div> -->
                     <div class="weather-item">
                         <div>Humidity</div>
-                        <div id="h">95%</div>
+                        <div id="h"></div>
                     </div>
                     <!-- <div class="weather-item">
                         <div id="p">Pressure</div>
                         <div>95%</div>
                     </div> -->
                     <div class="weather-item">
-                        <div>Wind Speed</div>
-                        <div id="w">95%</div>
+                        <div>Windspeed</div>
+                        <div id="w"></div>
                     </div>
                 </div>
             </div>
@@ -47,8 +47,8 @@
                 <div id="country" class="country">IN</div> -->
                 <div class="search">
                     <input type="text" class="search-bar" placeholder="Type city or country">
-                    <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
-                            height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                    <button type="button"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                            viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
                             </path>
@@ -59,13 +59,14 @@
         </div>
 
     </div>
-    <div class="future-forecast">
+    <div class="future-forecast ">
         <div class="today" id="current-temp">
             <img src="http://openweathermap.org/img/wn/10d@2x.png" class="w-icon" alt="weather icon">
             <div class="other">
                 <div class="day">Monday</div>
-                <!-- <div class="desc">Description</div> -->
+                
                 <div class="temp">Night - 25.6&#176; C</div>
+                <div class="desc des">Description</div>
 
             </div>
 
@@ -74,40 +75,45 @@
             <div class="weather-forecast-item">
                 <div class="day">Monday</div>
                 <img src="http://openweathermap.org/img/wn/10d@2x.png" class="w-icon" alt="weather icon">
-                <div class="desc">Description</div>
                 <div class="temp">Day - 25.6&#176; C</div>
+                <div class="desc des">Description</div>
             </div>
+
             <div class="weather-forecast-item">
                 <div class="day">Monday</div>
                 <img src="http://openweathermap.org/img/wn/10d@2x.png" class="w-icon" alt="weather icon">
-                <div class="desc">Description</div>
                 <div class="temp">Day - 25.6&#176; C</div>
+                <div class="desc des">Description</div>
             </div>
+
             <div class="weather-forecast-item">
                 <div class="day">Monday</div>
                 <img src="http://openweathermap.org/img/wn/10d@2x.png" class="w-icon" alt="weather icon">
-                <div class="desc">Description</div>
                 <div class="temp">Day - 25.6&#176; C</div>
+                <div class="desc des">Description</div>
             </div>
+
             <div class="weather-forecast-item">
                 <div class="day">Monday</div>
                 <img src="http://openweathermap.org/img/wn/10d@2x.png" class="w-icon" alt="weather icon">
-                <div class="desc">Description</div>
                 <div class="temp">Day - 25.6&#176; C</div>
+                <div class="desc des">Description</div>
             </div>
+
             <div class="weather-forecast-item">
                 <div class="day">Monday</div>
                 <img src="http://openweathermap.org/img/wn/10d@2x.png" class="w-icon" alt="weather icon">
-                <div class="desc">Description</div>
                 <div class="temp">Day - 25.6&#176; C</div>
+                <div class="desc des">Description</div>
             </div>
+           
 
 
             <!-- Test -->
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </body>
 
 </html>
