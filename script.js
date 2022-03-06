@@ -16,7 +16,7 @@ let weather = {
                 this.apiKey)
             .then((response) => response.json())
             .then((coords) => this.fetchWeather(coords));
-            timezone.innerHTML = city ;
+        timezone.innerHTML = city;
     },
     fetchWeather: function (coords) {
         const {
@@ -27,7 +27,7 @@ let weather = {
         fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely&units=metric&appid=' + this.apiKey)
             .then((response) => response.json())
             .then((data) => this.displayWeather(data));
-            
+
 
     },
 
@@ -43,7 +43,7 @@ let weather = {
         } = data.current;
 
         timezone.innerHTML += ` (${data.timezone})`
-        
+
         // let {city} = this.fetchCoords.city;
         //console.log(name, icon, description, temp, humidity, speed);
 
@@ -51,7 +51,7 @@ let weather = {
 
             ` 
         <div class="area" id="time-zone">${document.querySelector('.search-bar').value} Weather Today</div>
-           <div class="weather-item">
+                     <div class="weather-item">
                         <div>Humidity</div>
                         <div id="h">${humidity}%</div>
                     </div>
@@ -83,18 +83,17 @@ let weather = {
                 <div class="day">Today</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
                 <div class="desc des">${day.weather[0].description}</div>
-                 <div class="temp">Night - ${day.temp.night}&#176; C</div>
                 <div class="temp">Day - ${day.temp.day}&#176; C</div>
+                <div class="temp">Night - ${day.temp.night}&#176; C</div>
             </div>`
-            } 
-            else {
+            } else {
                 otherdayforecast += `
             <div class="weather-forecast-item">
                 <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
                 <div class="desc des">${day.weather[0].description}</div>
-                 <div class="temp">Night - ${day.temp.night}&#176; C</div>
                 <div class="temp">Day - ${day.temp.day}&#176; C</div>
+                <div class="temp">Night - ${day.temp.night}&#176; C</div>
             </div>`
             }
         })
@@ -122,7 +121,7 @@ setInterval(() => {
     const hin12Hy = hour >= 13 ? hour % 12 : hour;
     const ampm = hour >= 12 ? 'PM' : 'AM';
     // timeEl.innerHTML = hour + ":" + minutes + `<span id="am-pm"> ${ampm} </span>`;
-    timeEl.innerHTML = (hour<10 ? '0'+hour : hour) + ":" + (minutes<10 ? '0'+minutes : minutes) + `<span id="am-pm"> hrs </span>`;
+    timeEl.innerHTML = (hour < 10 ? '0' + hour : hour) + ":" + (minutes < 10 ? '0' + minutes : minutes) + `<span id="am-pm"> hrs </span>`;
     dateEl.innerHTML = days[date - 1] + ", " + date + " " + months[month];
 
 }, 1000);

@@ -77,9 +77,11 @@ a {
     text-transform: capitalize;
 }
 
+
 .area {
     margin-bottom: 20px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .place-container .country {
@@ -101,8 +103,13 @@ button {
     height: 2.5em;
     width: 2.5em;
     outline: none;
-    background-color: rgba(11, 55, 85, 0.301);
     color: aliceblue;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 button :hover {
@@ -120,7 +127,12 @@ button :hover {
     font-family: inherit;
     border-radius: 18px;
     color: aliceblue;
-    background-color: rgba(11, 55, 85, 0.301);
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .current-info .others {
@@ -129,9 +141,14 @@ button :hover {
     background-color: rgba(11, 55, 85, 0.301);
     padding: 15px;
     border-radius: 15px;
+
     margin: 10px 0;
     /* border: 1px solid rgba(172, 206, 230, 0.726); */
     /* make it optional */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .current-info .others .weather-item {
@@ -168,6 +185,12 @@ button :hover {
     padding: 15px;
     border-radius: 10px;
     margin: 0 10px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .main {
@@ -181,6 +204,9 @@ button :hover {
     border-radius: 10px;
     margin: 0 10px;
     text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .weather-forecast .weather-forecast-item .day {
@@ -242,8 +268,12 @@ button :hover {
     }
 
     .timezone {
-        margin-top: 30px;
-        font-size: 20px;
+        margin-top: 10px;
+        font-size: 10px;
+    }
+
+    .weather-item {
+        font-size: 15px;
     }
 
     .current-info {
