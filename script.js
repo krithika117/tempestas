@@ -1,5 +1,10 @@
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
+const currentWeatherItemsEl = document.getElementById('current-weather-items');
+const weatherForecastItemsEl = document.getElementById('weather-forecast');
+const currentTempEl = document.getElementById('current-temp');
+// const ci = document.querySelector('.search-bar').value;
+
 let weather = {
     apiKey: '740f562df2c7883dad5b3bb99ff9ffe2',
 
@@ -11,44 +16,89 @@ let weather = {
             .then((response) => response.json())
             .then((coords) => this.fetchWeather(coords));
     },
-    fetchWeather: function (coords){
-        const {lat, lon} = coords.coord;
+    fetchWeather: function (coords) {
+        const {
+            lat,
+            lon
+        } = coords.coord;
         console.log(this.lat, this.lon);
-        fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=hourly&appid=' + this.apiKey)
+        fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely&units=metric&appid=' + this.apiKey)
             .then((response) => response.json())
-            .then((data) => console.log(data));
-            
+            .then((data) => this.displayWeather(data));
+
     },
- 
+
     displayWeather: function (data) {
-        const {
-            name
-        } = data;
-        // const {
-        //     icon,
-        //     description
-        // } = data.weather[0];
-        const {
+
+        let {
             temp,
             humidity,
-            pressure
-        } = data.main;
-        const {
-            speed
-        } = data.wind;
+            pressure,
+            sunrise,
+            sunset,
+            wind_speed
+        } = data.current;
+        // let {city} = this.fetchCoords.city;
         //console.log(name, icon, description, temp, humidity, speed);
-        document.querySelector('.time-zone').innerText = "Weather in " + name;
-        document.querySelector('.desc').innerText = description;
-        document.querySelector('.temp').innerText = temp + '° C';
-        document.querySelector('#h').innerText = humidity + '%';
-        document.querySelector('#p').innerText = pressure;
-        document.querySelector('#w').innerText = speed + ' km/h';
-        document.querySelector('.w-icon').src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+
+        currentWeatherItemsEl.innerHTML =
+
+
+            ` 
+           <div class="weather-item">
+                        <div>Humidity</div>
+                        <div id="h">${humidity}%</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Pressure</div>
+                        <div id="p">${pressure}</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Windspeed</div>
+                        <div id="w">${wind_speed} km/h</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Sunrise</div>
+                        <div id="w">${window.moment(sunrise * 1000).format('HH:MM a')}</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Sunset</div>
+                        <div id="w">${window.moment(sunset * 1000).format('HH:MM a')}</div>
+                    </div>
+`
+
+
+        let otherdayforecast = ''
+        data.daily.forEach((day, idx) => {
+            if (idx == 0) {
+                currentTempEl.innerHTML += `
+                <div class="weather-forecast-item">
+                <div class="day">Today</div>
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
+                <div class="desc des">${day.weather[0].description}</div>
+                 <div class="temp">Night - ${day.temp.night}&#176; C</div>
+                <div class="temp">Day - ${day.temp.day}&#176; C</div>
+            </div>`
+            } else {
+                otherdayforecast += `
+            <div class="weather-forecast-item">
+                <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
+                <div class="desc des">${day.weather[0].description}</div>
+                 <div class="temp">Night - ${day.temp.night}&#176; C</div>
+                <div class="temp">Day - ${day.temp.day}&#176; C</div>
+            </div>`
+            }
+        })
+        weatherForecastItemsEl.innerHTML = otherdayforecast;
+
     },
     search: function () {
         this.fetchCoords(document.querySelector('.search-bar').value);
     },
 };
+
+
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -67,6 +117,7 @@ setInterval(() => {
     dateEl.innerHTML = days[date - 1] + ", " + date + " " + months[month];
 
 }, 1000);
+
 
 document.querySelector('.search button').addEventListener('click', function () {
     weather.search();

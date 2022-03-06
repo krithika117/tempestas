@@ -15,7 +15,7 @@
 
 body {
     font-family: 'Product Sans';
-    background: url('./images/bg1.svg');
+    background: url('./images/bgmain.svg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -55,11 +55,15 @@ body {
 
 .place-container {
     text-align: end;
-
 }
 
 .des {
     text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: 0;
+    font-size: 13px;
+    margin-bottom: 5px;
+    text-align: left !important;
 }
 
 .others .time-zone {
@@ -126,7 +130,6 @@ button :hover {
 
 .future-forecast {
     /* background: rgba(122, 196, 230, 0.301); */
-
     padding: 25px;
     position: fixed;
     bottom: 0;
@@ -138,23 +141,28 @@ button :hover {
 }
 
 .future-forecast .today {
-    background: rgba(11, 55, 85, 0.301);
-    padding: 20px;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-top-left-radius: 20px;
+    background: rgba(240, 234, 234, 0.404);
+    padding: 15px;
     border-radius: 10px;
+    margin: 0 10px;
 }
+
 
 .future-forecast .today .day {
     padding: 5px 15px;
     background: #3c3c44;
     border-radius: 50px;
-    text-align: center;
+    text-align: left;
 }
 
 .future-forecast .today .temp {
-    font-size: 20px;
+    font-size: 15px;
     padding-top: 15px;
 }
 
@@ -174,18 +182,40 @@ button :hover {
     margin: 0 10px;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    background: rgba(11, 55, 85, 0.301);
+    padding: 25px;
+    border-radius: 10px;
+    margin: 0 10px;
+    text-align: center;
+}
+
 .weather-forecast .weather-forecast-item .day {
     padding: 5px 15px;
     background: #3c3c44;
     border-radius: 50px;
-    text-align: center;
+    text-align: left;
 }
 
 .weather-forecast .weather-forecast-item .temp {
     font-weight: 100;
+    font-size: 13px;
 }
 
-@media only screen and (max-width:850px) {
+@media only screen and (max-width: 1400px) {
+    .future-forecast {
+        justify-content: start;
+        align-items: none;
+        overflow-x: scroll;
+    }
+}
+
+@media only screen and (max-width:730px) {
     .container {
         padding: 35px
     }
