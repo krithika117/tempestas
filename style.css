@@ -185,7 +185,7 @@ button :hover {
 
 .weather-forecast .weather-forecast-item .day {
     padding: 5px 15px;
-    background: #3c3c44;
+    background: rgba(11, 55, 85, 0.479);
     border-radius: 50px;
     text-align: left;
 }
