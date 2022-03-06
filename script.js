@@ -43,8 +43,8 @@ let weather = {
 
         currentWeatherItemsEl.innerHTML =
 
-
             ` 
+            <div class="time-zone" id="time-zone">Weather in ${document.querySelector('.search-bar').value}</div>
            <div class="weather-item">
                         <div>Humidity</div>
                         <div id="h">${humidity}%</div>
@@ -69,9 +69,10 @@ let weather = {
 
 
         let otherdayforecast = ''
+        let currentforecast = ''
         data.daily.forEach((day, idx) => {
             if (idx == 0) {
-                currentTempEl.innerHTML += `
+                currentforecast += `
                 <div class="weather-forecast-item">
                 <div class="day">Today</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
@@ -79,7 +80,8 @@ let weather = {
                  <div class="temp">Night - ${day.temp.night}&#176; C</div>
                 <div class="temp">Day - ${day.temp.day}&#176; C</div>
             </div>`
-            } else {
+            } 
+            else {
                 otherdayforecast += `
             <div class="weather-forecast-item">
                 <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
@@ -91,6 +93,7 @@ let weather = {
             }
         })
         weatherForecastItemsEl.innerHTML = otherdayforecast;
+        currentTempEl.innerHTML = currentforecast;
 
     },
     search: function () {
