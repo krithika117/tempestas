@@ -24,7 +24,7 @@ let weather = {
                 lat,
                 lon
             } = coords.coord;
-            console.log(this.lat, this.lon);
+            // console.log(this.lat, this.lon);
             fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely&units=metric&appid=' + this.apiKey)
                 .then((response) => response.json())
                 .then((data) => this.displayWeather(data));
