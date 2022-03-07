@@ -18,19 +18,19 @@ let weather = {
             .then((coords) => this.fetchWeather(coords));
         timezone.innerHTML = city;
     },
-    fetchWeather: function (coords) { try{
-        const {
-            lat,
-            lon
-        } = coords.coord;
-        console.log(this.lat, this.lon);
-        fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely&units=metric&appid=' + this.apiKey)
-            .then((response) => response.json())
-            .then((data) => this.displayWeather(data));
-    }
-    catch(err){
-        timezone.innerHTML = 'Please enter valid location.';
-    }
+    fetchWeather: function (coords) {
+        try {
+            const {
+                lat,
+                lon
+            } = coords.coord;
+            console.log(this.lat, this.lon);
+            fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely&units=metric&appid=' + this.apiKey)
+                .then((response) => response.json())
+                .then((data) => this.displayWeather(data));
+        } catch (err) {
+            timezone.innerHTML = 'Please enter valid location.';
+        }
 
     },
 
@@ -44,7 +44,7 @@ let weather = {
             sunset,
             wind_speed
         } = data.current;
-         
+
         timezone.innerHTML += ` (${data.timezone})`;
 
         // let {city} = this.fetchCoords.city;
@@ -104,11 +104,11 @@ let weather = {
         currentTempEl.innerHTML = currentforecast;
 
         // console.log(formatter.format(new Date()));
-       
+
         // const time = new Date(new Date().toLocaleString('en-US', {timeZone: data.timezone}));
 
         const tz = data.timezone;
-        
+
     },
     search: function () {
         this.fetchCoords(document.querySelector('.search-bar').value);
@@ -121,9 +121,9 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 setInterval(() => {
     weather.coords
     // timeEl.innerHTML = hour + ":" + minutes + `<span id="am-pm"> ${ampm} </span>`;
-    
+
     // const tz = weather.timezone;
-    
+
     const time = new Date();
     // const time = new Date();
     const month = time.getMonth();
@@ -131,7 +131,7 @@ setInterval(() => {
     const day = time.getDay();
     const hour = time.getHours();
 
-    
+
 
     const minutes = time.getMinutes();
     // const hin12Hy = hour >= 13 ? hour % 12 : hour;
@@ -139,8 +139,6 @@ setInterval(() => {
     timeEl.innerHTML = (hour < 10 ? '0' + hour : hour) + ":" + (minutes < 10 ? '0' + minutes : minutes) + `<span id="am-pm"> IST </span>`;
     dateEl.innerHTML = days[date - 1] + ", " + date + " " + months[month];
 }, 1000);
-
-
 
 document.querySelector('.search button').addEventListener('click', function () {
     weather.search();
@@ -158,11 +156,9 @@ var currentTime = new Date().getHours();
 if (document.body) {
     if (7 <= currentTime && currentTime < 15) {
         document.body.background = "./images/mor.svg";
-    }
-    else if (15 <= currentTime && currentTime < 19) {
+    } else if (15 <= currentTime && currentTime < 19) {
         document.body.background = "./images/bg1.svg";
-    }
-    else {
+    } else {
         document.body.background = "./images/night.svg";
     }
 }
