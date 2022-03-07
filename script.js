@@ -137,7 +137,7 @@ setInterval(() => {
     // const hin12Hy = hour >= 13 ? hour % 12 : hour;
     const ampm = hour >= 12 ? 'PM' : 'AM';
     timeEl.innerHTML = (hour < 10 ? '0' + hour : hour) + ":" + (minutes < 10 ? '0' + minutes : minutes) + `<span id="am-pm"> IST </span>`;
-    dateEl.innerHTML = days[date - 1] + ", " + date + " " + months[month];
+    dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
 }, 1000);
 
 document.querySelector('.search button').addEventListener('click', function () {
