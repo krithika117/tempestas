@@ -154,6 +154,7 @@ weather.fetchCoords('Chennai');
 
 //Dynamic bg
 var currentTime = new Date().getHours();
+
 if (document.body) {
     if (7 <= currentTime && currentTime < 15) {
         document.body.background = "./images/mor.svg";
