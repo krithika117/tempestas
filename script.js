@@ -151,3 +151,17 @@ document.querySelector('.search-bar').addEventListener('keyup', function (event)
     }
 });
 weather.fetchCoords('Chennai');
+
+//Dynamic bg
+var currentTime = new Date().getHours();
+if (document.body) {
+    if (7 <= currentTime && currentTime < 15) {
+        document.body.background = "./images/mor.svg";
+    }
+    else if (15 <= currentTime && currentTime < 19) {
+        document.body.background = "./images/bg1.svg";
+    }
+    else {
+        document.body.background = "./images/night.svg";
+    }
+}
