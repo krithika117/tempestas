@@ -86,8 +86,8 @@ let weather = {
                 <div class="day">Today</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
                 <div class="desc des">${day.weather[0].description}</div>
-                <div class="temp">Day - ${day.temp.day}&#176; C</div>
-                <div class="temp">Night - ${day.temp.night}&#176; C</div>
+                <div class="temp">Day: ${day.temp.day}&#176; C</div>
+                <div class="temp">Night: ${day.temp.night}&#176; C</div>
             </div>`
             } else {
                 otherdayforecast += `
@@ -95,8 +95,8 @@ let weather = {
                 <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="w-icon" alt="weather icon">
                 <div class="desc des">${day.weather[0].description}</div>
-                <div class="temp">Day - ${day.temp.day}&#176; C</div>
-                <div class="temp">Night - ${day.temp.night}&#176; C</div>
+                <div class="temp">Day: ${day.temp.day}&#176; C</div>
+                <div class="temp">Night: ${day.temp.night}&#176; C</div>
             </div>`
             }
         })
@@ -130,9 +130,6 @@ setInterval(() => {
     const date = time.getDate();
     const day = time.getDay();
     const hour = time.getHours();
-
-
-
     const minutes = time.getMinutes();
     // const hin12Hy = hour >= 13 ? hour % 12 : hour;
     const ampm = hour >= 12 ? 'PM' : 'AM';
