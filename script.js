@@ -4,6 +4,7 @@ const currentWeatherItemsEl = document.getElementById('current-weather-items');
 const weatherForecastItemsEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 const emplace = 'Chennai';
+
 // const ci = document.querySelector('.search-bar').value;
 
 let weather = {
@@ -35,7 +36,7 @@ let weather = {
     },
 
     displayWeather: function (data) {
-
+ 
         let {
             temp,
             humidity,
@@ -46,10 +47,16 @@ let weather = {
         } = data.current;
 
         timezone.innerHTML += ` (${data.timezone})`;
-
+      
+  
         // let {city} = this.fetchCoords.city;
         //console.log(name, icon, description, temp, humidity, speed);
-
+        // console.log(date.toLocaleString('de-DE', {hour: '2-digit',   hour12: false, timeZone: 'Asia/Shanghai' }));
+        //console.log(moment.format());
+        
+        // console.log(moment(sunrise * 1000).tz(data.timezone).format('HH:MM a'));
+        // console.log(moment(sunset * 1000).tz(data.timezone).format('HH:MM a'));
+        
         currentWeatherItemsEl.innerHTML =
 
             ` 
@@ -68,11 +75,11 @@ let weather = {
                     </div>
                     <div class="weather-item">
                         <div>Sunrise</div>
-                        <div id="w">${window.moment(sunrise * 1000).format('HH:MM a')}</div>
+                        <div id="w">${window.moment(sunrise * 1000).tz(data.timezone).format('HH:MM a')}</div>
                     </div>
                     <div class="weather-item">
                         <div>Sunset</div>
-                        <div id="w">${window.moment(sunset * 1000).format('HH:MM a')}</div>
+                        <div id="w">${window.moment(sunset * 1000).tz(data.timezone).format('HH:MM a')}</div>
                     </div>
 `
 
@@ -133,7 +140,7 @@ setInterval(() => {
     const minutes = time.getMinutes();
     // const hin12Hy = hour >= 13 ? hour % 12 : hour;
     const ampm = hour >= 12 ? 'PM' : 'AM';
-    timeEl.innerHTML = (hour < 10 ? '0' + hour : hour) + ":" + (minutes < 10 ? '0' + minutes : minutes) + `<span id="am-pm"> IST </span>`;
+    timeEl.innerHTML = (hour < 10 ? '0' + hour : hour) + ":" + (minutes < 10 ? '0' + minutes : minutes) + `<span id="am-pm"> hrs  </span>`;
     dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
 }, 1000);
 
