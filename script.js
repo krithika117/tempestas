@@ -66,8 +66,8 @@ let weather = {
                         <div id="h">${humidity}%</div>
                     </div>
                     <div class="weather-item">
-                        <div>Pressure hPa</div>
-                        <div id="p">${pressure}</div>
+                        <div>Pressure</div>
+                        <div id="p">${pressure}  hPa</div>
                     </div>
                     <div class="weather-item">
                         <div>Windspeed</div>
